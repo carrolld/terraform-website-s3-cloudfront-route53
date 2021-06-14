@@ -115,6 +115,7 @@ See the [Terraform Modules documentation](https://www.terraform.io/docs/modules/
 * `minimum_client_tls_protocol_version`: (Optional) Set the minimum protocol version of the CloudFront certificate.
   Read the docs on [Supported Protocols and Ciphers](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html#secure-connections-supported-ciphers)
   for supported values. Default value = `TLSv1`
+* `origin_path`: (Optional) Causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
 
 ### Outputs
 
