@@ -32,13 +32,13 @@ data "template_file" "bucket_policy" {
   template = file("${path.module}/website_redirect_bucket_policy.json")
 
   vars = {
-    bucket = "site.${replace(replace(var.domain, ".", "-"), "*", "star")}"
+    bucket = var.bucket_name
     secret = var.duplicate-content-penalty-secret
   }
 }
 
 resource "aws_s3_bucket" "website_bucket" {
-  bucket = "site.${replace(replace(var.domain, ".", "-"), "*", "star")}"
+  bucket = var.bucket_name
   policy = data.template_file.bucket_policy.rendered
 
   website {
@@ -60,7 +60,7 @@ data "template_file" "deployer_role_policy_file" {
   template = file("${path.module}/deployer_role_policy.json")
 
   vars = {
-    bucket = "site.${replace(replace(var.domain, ".", "-"), "*", "star")}"
+    bucket = var.bucket_name
   }
 }
 
